@@ -1,0 +1,24 @@
+[Unit]
+Description=NetBox to LibreNMS Webhook Sync Receiver
+After=network.target
+
+[Service]
+Type=simple
+User=netbox
+Group=netbox
+
+# Update this to the absolute path where you deploy the scripts on your Linux host
+WorkingDirectory=/opt/netbox-to-librenms
+
+# Update this to the absolute path of your Python interpreter and receiver script
+ExecStart=/usr/bin/python3 webhook_receiver.py
+
+# Automatically restart the service if it crashes
+Restart=always
+RestartSec=5
+
+# Optional: Set environment variables securely here if not using config.toml
+# Environment=LIBRENMS_API_TOKEN=your_token_here
+
+[Install]
+WantedBy=multi-user.target
