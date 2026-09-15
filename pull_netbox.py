@@ -106,6 +106,7 @@ class LibreNMSClient:
                 "authalgo": v3_cfg.get("authalgo", "SHA"),
                 "cryptopass": v3_cfg.get("cryptopass"),
                 "cryptoalgo": v3_cfg.get("cryptoalgo", "AES"),
+                "authlevel": v3_cfg.get("security_level", "authPriv"),
                 "seclevel": v3_cfg.get("security_level", "authPriv"),
             }
             if location:
